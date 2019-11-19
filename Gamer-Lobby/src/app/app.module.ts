@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddPlayerComponent } from './components/add-player/add-player.component';
+import { EditPlayerComponent } from './components/edit-player/edit-player.component';
+import { PlayerListComponent } from './components/player-list/player-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddPlayerComponent,
+    EditPlayerComponent,
+    PlayerListComponent
   ],
   imports: [
     BrowserModule,
