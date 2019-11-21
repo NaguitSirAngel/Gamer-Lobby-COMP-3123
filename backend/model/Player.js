@@ -13,13 +13,16 @@ let Player = new Schema({
     type: String
   },
   player_time: {
+    type: Date
+  },
+  player_favourite_game:{
+    type: String
+  },
+  player_status: {
     type: String
   },
   player_games_played: {
     type: Array
-  },
-  player_status: {
-    type: String
   }
 }, {
   collection: 'players'
