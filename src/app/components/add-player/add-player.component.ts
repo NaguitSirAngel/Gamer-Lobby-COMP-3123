@@ -42,7 +42,7 @@ export class AddPlayerComponent implements OnInit {
       player_name: ['', [Validators.required]],
       player_score: ['', [Validators.required]],
       player_ranking: ['', [Validators.required]],
-      dob: ['', [Validators.required]],
+      player_time: ['', [Validators.required]],
       player_favourite_game: ['', [Validators.required]],
       player_status: ['Available']
     })
