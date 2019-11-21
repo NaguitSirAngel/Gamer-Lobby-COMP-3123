@@ -21,7 +21,7 @@
         <!-- Player Ranking-->
         <mat-form-field>
           <mat-label>Player Ranking</mat-label>
-          <mat-select [(value)]="selected" formControlName="ranking">
+          <mat-select [(value)]="selected" formControlName="player_ranking">
             <mat-option [value]="rankingArray" *ngFor="let rankingArray of RankingArray">{{rankingArray}}
             </mat-option>
           </mat-select>
@@ -57,11 +57,11 @@
 
         <!-- Date of birth -->
         <mat-form-field>
-          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="dob"
+          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="player_time"
             (dateChange)="formatDate($event)">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="handleError('dob', 'required')">
+          <mat-error *ngIf="handleError('player_time', 'required')">
             Date of birth is required
           </mat-error>
         </mat-form-field>
