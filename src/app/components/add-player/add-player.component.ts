@@ -5,9 +5,6 @@ import { MatChipInputEvent } from '@angular/material';
 import { ApiService } from './../../shared/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
-export interface Subject {
-  name: string;
-}
 
 @Component({
   selector: 'app-add-player',
@@ -24,8 +21,9 @@ export class AddPlayerComponent implements OnInit {
   @ViewChild('resetPlayerForm', {static:true}) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
-  subjectArray: Subject[] = [];
-  SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
+
+  RankingArray: any = ["1", "2", "3", "4", "5"];
+  FavouriteGameArray: any = ["Overwatch", "Battle Realms", "Command and Conquer", "World of Warcraft", "Dota 2"];
 
   ngOnInit() {
     this.submitBookForm();
@@ -42,35 +40,35 @@ export class AddPlayerComponent implements OnInit {
   submitBookForm() {
     this.playerForm = this.fb.group({
       player_name: ['', [Validators.required]],
-      player_email: ['', [Validators.required]],
-      section: ['', [Validators.required]],
-      subjects: [this.subjectArray],
+      player_score: ['', [Validators.required]],
+      player_ranking: ['', [Validators.required]],
       dob: ['', [Validators.required]],
-      gender: ['Male']
+      player_favourite_game: ['', [Validators.required]],
+      player_status: ['Available']
     })
   }
 
   /* Add dynamic languages */
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    // Add language
-    if ((value || '').trim() && this.subjectArray.length < 5) {
-      this.subjectArray.push({ name: value.trim() })
-    }
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
-  }
+  // add(event: MatChipInputEvent): void {
+  //   const input = event.input;
+  //   const value = event.value;
+  //   // Add language
+  //   if ((value || '').trim() && this.gameArray.length < 5) {
+  //     this.gameArray.push({ name: value.trim() })
+  //   }
+  //   // Reset the input value
+  //   if (input) {
+  //     input.value = '';
+  //   }
+  // }
 
-  /* Remove dynamic languages */
-  remove(subject: Subject): void {
-    const index = this.subjectArray.indexOf(subject);
-    if (index >= 0) {
-      this.subjectArray.splice(index, 1);
-    }
-  }  
+  // /* Remove dynamic languages */
+  // remove(game: Game): void {
+  //   const index = this.gameArray.indexOf(game);
+  //   if (index >= 0) {
+  //     this.gameArray.splice(index, 1);
+  //   }
+  // }  
 
   /* Date */
   formatDate(e) {
