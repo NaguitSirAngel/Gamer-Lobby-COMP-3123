@@ -1,13 +1,16 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header">
-  <div>Player Records</div>
+  <div>Gamer Lobby</div>
   <span class="nav-tool-items">
-    <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+    <button mat-raised-button color="accent">Login</button>
   </span>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <!-- Sidenav -->
+<div class="main">
+  <app-players-list></app-players-list>
+</div>
+
+<!-- <mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
     [fixedTopGap]>
     <mat-nav-list>
@@ -20,8 +23,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <!-- Main content -->
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
