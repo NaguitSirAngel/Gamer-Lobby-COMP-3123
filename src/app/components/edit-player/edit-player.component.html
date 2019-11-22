@@ -44,16 +44,12 @@
       <mat-card>
         <div class="controlers-wrapper">
           <!-- Player Time -->
-          <mat-form-field>
-            <input matInput readonly [matDatepicker]="picker" placeholder="Player Time" formControlName="player_time"
-              (dateChange)="formatDate($event)">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Player Time" formControlName="player_time">
             <mat-error *ngIf="handleError('player_time', 'required')">
-              Date of birth is required
+              You must provide a <strong>player time</strong>
             </mat-error>
           </mat-form-field>
-        </div>
 
           <!-- Player Favourite Game -->
           <mat-form-field>
@@ -66,14 +62,15 @@
                 Rank is required
               </mat-error>
             </mat-form-field>
+        </div>
 
-          <!-- Player Status-->
-          <div class="misc-bottom-padding">
-            <mat-label>Status:</mat-label>
-            <mat-radio-group aria-label="Select an option" formControlName="player_status">
-              <mat-radio-button value="Available">Available</mat-radio-button>
-              <mat-radio-button value="Unavailable">Unavailable</mat-radio-button>
-            </mat-radio-group>
+        <!-- Player Status-->
+        <div class="misc-bottom-padding">
+          <mat-label>Status:</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="player_status">
+            <mat-radio-button value="Available">Available</mat-radio-button>
+            <mat-radio-button value="Unavailable">Unavailable</mat-radio-button>
+          </mat-radio-group>
         </div>        
       </mat-card>
       

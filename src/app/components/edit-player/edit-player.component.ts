@@ -66,13 +66,13 @@ export class EditPlayerComponent implements OnInit {
     })
   }
 
-  /* Date */
-  formatDate(e) {
-    var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.playerForm.get('player_time').setValue(convertDate, {
-      onlyself: true
-    })
-  }
+  // /* Date */
+  // formatDate(e) {
+  //   var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
+  //   this.playerForm.get('player_time').setValue(convertDate, {
+  //     onlyself: true
+  //   })
+  // }
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {

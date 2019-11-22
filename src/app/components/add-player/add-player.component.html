@@ -55,14 +55,11 @@
           </mat-error>
         </mat-form-field>        
 
-        <!-- Date of birth -->
-        <mat-form-field>
-          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="player_time"
-            (dateChange)="formatDate($event)">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+        <!-- Player Time -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Player Time" formControlName="player_time">
           <mat-error *ngIf="handleError('player_time', 'required')">
-            Date of birth is required
+            You must provide a <strong>player time</strong>
           </mat-error>
         </mat-form-field>
 
