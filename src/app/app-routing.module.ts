@@ -7,7 +7,7 @@ import { PlayerRankingComponent } from './components/player-ranking/player-ranki
 import {GamesListComponent } from './components/games-list/games-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'add-player' },
+  { path: '', pathMatch: 'full', redirectTo: 'player-ranking' },
   { path: 'add-player', component: AddPlayerComponent },
   { path: 'edit-player/:id', component: EditPlayerComponent },
   { path: 'players-list', component: PlayersListComponent },
