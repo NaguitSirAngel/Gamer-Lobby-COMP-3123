@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
-const playerRoute = express.Router();
+const gameRoute = express.Router();
+
+// Model
+let Game = require('../model/Game');
+
 
 // Fetch all
 gameRoute.route('/').get((req, res) => {
@@ -13,5 +17,5 @@ gameRoute.route('/').get((req, res) => {
     })
   })
 
-module.exports = playerRoute;
+module.exports = gameRoute;
   

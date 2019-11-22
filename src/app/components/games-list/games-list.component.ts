@@ -16,7 +16,7 @@ export class GamesListComponent implements OnInit {
   displayedColumns: string[] = ['game_title', 'game_platform', 'game_genre', 'game_rating', 'game_publisher', 'game_release', 'game_status'];
   
   constructor(private gameApi: ApiService) {
-    this.gameApi.GetPlayers().subscribe(data => {
+    this.gameApi.GetGames().subscribe(data => {
       this.GameData = data;
       this.dataSource = new MatTableDataSource<Game>(this.GameData);
       setTimeout(() => {
