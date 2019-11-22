@@ -24,8 +24,8 @@ export class EditPlayerComponent implements OnInit {
   @ViewChild('resetPlayerForm', {static:true}) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
-  selecter1: null;
-  selecter2: null;
+  selected1: null;
+  selected2: null;
   RankingArray: any = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   FavouriteGameArray: any = ["Overwatch", "Battle Realms", "Command and Conquer", "World of Warcraft", "Dota 2"];
 
