@@ -12,7 +12,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 export class PlayersListComponent implements OnInit {
   PlayerData: any = [];
   dataSource: MatTableDataSource<Player>;
-  @ViewChild(MatPaginator , {static:true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator , {static:false}) paginator: MatPaginator;
   displayedColumns: string[] = ['player_name', 'player_rank', 'player_score', 'player_time', 'player_games_played','player_status', 'action'];
 
   constructor(private playerApi: ApiService) {

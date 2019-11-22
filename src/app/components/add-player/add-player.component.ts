@@ -21,7 +21,7 @@ export class AddPlayerComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
 
-  RankingArray: any = ["1", "2", "3", "4", "5"];
+  RankingArray: any = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   FavouriteGameArray: any = ["Overwatch", "Battle Realms", "Command and Conquer", "World of Warcraft", "Dota 2"];
 
   ngOnInit() {
@@ -50,7 +50,7 @@ export class AddPlayerComponent implements OnInit {
   /* Date */
   formatDate(e) {
     var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.playerForm.get('dob').setValue(convertDate, {
+    this.playerForm.get('player_time').setValue(convertDate, {
       onlyself: true
     })
   }  
