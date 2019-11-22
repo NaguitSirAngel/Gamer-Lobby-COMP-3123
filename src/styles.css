@@ -1,6 +1,5 @@
 html,body{height:100%;}
 body{margin:0;font-family:'Roboto', sans-serif;}
-.main{padding:25px 40px 0;}
 .header{justify-content:space-between;}
 .user-profile{margin-left:15px;}
 .mat-sidenav-container{height:100%;display:flex;flex:1 1 auto;}
