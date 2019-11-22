@@ -24,6 +24,11 @@ export class ApiService {
       )
   }
 
+  // Get all games
+  GetGames(){
+    return this.http.get(`${this.endpoint}`);
+  }
+
   // Get all player
   GetPlayers() {
     return this.http.get(`${this.endpoint}`);
