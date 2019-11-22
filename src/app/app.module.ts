@@ -15,7 +15,6 @@ import { ApiService } from './shared/api.service';
 /* Reactive form services in Angular 8 */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayersListComponent } from './components/players-list/players-list.component';
-import { AdminViewComponent } from './components/admin-view/admin-view.component';
 
 
 @NgModule({
@@ -23,8 +22,7 @@ import { AdminViewComponent } from './components/admin-view/admin-view.component
     AppComponent,
     AddPlayerComponent,
     EditPlayerComponent,
-    PlayersListComponent,
-    AdminViewComponent
+    PlayersListComponent
   ],
   imports: [
     BrowserModule,
