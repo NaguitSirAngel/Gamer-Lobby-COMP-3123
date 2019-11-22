@@ -1,13 +1,15 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header">
+        <div>Gamer Lobby</div>
+        <span class="nav-tool-items">
+          <button mat-raised-button color="accent" routerLink="/players-list">Logout</button>
+        </span>
+    </mat-toolbar>
+
+<p>admin-view works!</p>
 
 
-
-<router-outlet></router-outlet>
-
-<!-- <div class="main">
-  <app-players-list></app-players-list>
-</div> -->
-
-<!-- <mat-sidenav-container>
+<mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
     [fixedTopGap]>
     <mat-nav-list>
@@ -23,4 +25,4 @@
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-</mat-sidenav-container> -->
+</mat-sidenav-container>

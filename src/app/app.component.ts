@@ -13,24 +13,24 @@ export class AppComponent {
 
   ngOnInit() {
     console.log(window.innerWidth)
-    if (window.innerWidth < 768) {
-      this.sidenav.fixedTopGap = 55;
-      this.opened = false;
-    } else {
-      this.sidenav.fixedTopGap = 55;
-      this.opened = true;
-    }
+    // if (window.innerWidth < 768) {
+    //   this.sidenav.fixedTopGap = 55;
+    //   this.opened = false;
+    // } else {
+    //   this.sidenav.fixedTopGap = 55;
+    //   this.opened = true;
+    // }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    if (event.target.innerWidth < 768) {
-      this.sidenav.fixedTopGap = 55;
-      this.opened = false;
-    } else {
-      this.sidenav.fixedTopGap = 55
-      this.opened = true;
-    }
+    // if (event.target.innerWidth < 768) {
+    //   this.sidenav.fixedTopGap = 55;
+    //   this.opened = false;
+    // } else {
+    //   this.sidenav.fixedTopGap = 55
+    //   this.opened = true;
+    // }
   }
 
   isBiggerScreen() {
