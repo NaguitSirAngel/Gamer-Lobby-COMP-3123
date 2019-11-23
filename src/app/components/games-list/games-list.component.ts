@@ -24,5 +24,10 @@ export class GamesListComponent implements OnInit {
       }, 0);
     })    
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
   ngOnInit() { }
 }

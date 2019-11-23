@@ -6,9 +6,14 @@
     <button mat-raised-button color="warn" routerLink="/players-list" >Players</button>
     <br>
     <br>
+    <mat-form-field appearance = "outline"  class="push-right">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
-
 
   <p *ngIf="PlayerData.length <= 0" class="no-data">There is no player added yet!</p>
   

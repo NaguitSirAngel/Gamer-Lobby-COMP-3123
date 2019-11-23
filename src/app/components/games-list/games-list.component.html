@@ -6,6 +6,11 @@
     <button mat-raised-button color="primary" routerLink="/players-list" >Players</button>
     <br>
     <br>
+    <mat-form-field appearance = "outline"  class="push-right">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
     <mat-divider fxFlex="1 0"></mat-divider>
 
 </div>
