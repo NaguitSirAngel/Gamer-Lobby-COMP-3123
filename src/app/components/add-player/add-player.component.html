@@ -1,12 +1,12 @@
 <!-- Title group  -->
 <div class="title-group">
   <h1 class="mat-h1">Add Player</h1>
-  <button  mat-fab color="accent" routerLink="/add-player"  class="push-right">Add</button>
-    <button  mat-fab color="primary" routerLink="/games-list" class="push-right">Games</button>
-    <button  mat-fab color="primary" routerLink="/players-list" >Players</button>
-    <br>
-    <br>
-    <mat-divider fxFlex="1 0"></mat-divider>
+  <button mat-fab color="accent" routerLink="/add-player" class="push-right">Add</button>
+  <button mat-fab color="primary" routerLink="/games-list" class="push-right">Games</button>
+  <button mat-fab color="primary" routerLink="/players-list">Players</button>
+  <br>
+  <br>
+  <mat-divider fxFlex="1 0"></mat-divider>
 </div>
 
 <!-- Form -->
@@ -52,13 +52,14 @@
         <mat-form-field>
           <mat-label>Favourite Game</mat-label>
           <mat-select [(value)]="game_selected" formControlName="player_favourite_game">
-            <mat-option [value]="favouriteGameArray" *ngFor="let favouriteGameArray of FavouriteGameArray">{{favouriteGameArray}}
+            <mat-option [value]="favouriteGameArray" *ngFor="let favouriteGameArray of FavouriteGameArray">
+              {{favouriteGameArray}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="handleError('player_favourite_game', 'required')">
             Favourite game is required
           </mat-error>
-        </mat-form-field>        
+        </mat-form-field>
 
         <!-- Player Time -->
         <mat-form-field class="example-full-width">

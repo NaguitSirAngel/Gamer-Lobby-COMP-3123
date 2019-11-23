@@ -1,13 +1,8 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material';
 import { ApiService } from './../../shared/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-
-export interface Subject {
-  name: string;
-}
 
 @Component({
   selector: 'app-edit-player',
@@ -20,7 +15,6 @@ export class EditPlayerComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  // @ViewChild('chipList' , {static:true}) chipList;
   @ViewChild('resetPlayerForm', {static:true}) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
@@ -43,7 +37,6 @@ export class EditPlayerComponent implements OnInit {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.playerApi.GetPlayer(id).subscribe(data => {
       console.log(data.subjects)
-      // this.subjectArray = data.subjects;
       this.playerForm = this.fb.group({
         player_name: [data.player_name, [Validators.required]],
         player_rank: [data.player_rank, [Validators.required]],
@@ -66,14 +59,6 @@ export class EditPlayerComponent implements OnInit {
       player_status: ['Available']
     })
   }
-
-  // /* Date */
-  // formatDate(e) {
-  //   var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-  //   this.playerForm.get('player_time').setValue(convertDate, {
-  //     onlyself: true
-  //   })
-  // }
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {

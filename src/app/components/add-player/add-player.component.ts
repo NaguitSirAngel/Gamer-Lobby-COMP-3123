@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material';
 import { ApiService } from './../../shared/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
@@ -17,7 +16,7 @@ export class AddPlayerComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  @ViewChild('resetPlayerForm', {static:true}) myNgForm;
+  @ViewChild('resetPlayerForm', { static: true }) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
   game_selected: null;
@@ -48,18 +47,10 @@ export class AddPlayerComponent implements OnInit {
     })
   }
 
-  // /* Date */
-  // formatDate(e) {
-  //   var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-  //   this.playerForm.get('player_time').setValue(convertDate, {
-  //     onlyself: true
-  //   })
-  // }  
-
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {
     return this.playerForm.controls[controlName].hasError(errorName);
-  }  
+  }
 
   /* Submit book */
   submitPlayerForm() {

@@ -1,0 +1,62 @@
+<!-- Title group  -->
+<div class="title-group">
+    <h1 class="mat-h1">Joining Game</h1>
+    <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+
+<div class="inner-wrapper">
+    <mat-card>
+        <!-- PLAYER NAME -->
+        <h2 class="mat-h2">Player Name</h2>
+        <mat-label>{{Player.player_name}}</mat-label><br><br>
+        <mat-divider fxFlex="1 0"></mat-divider>&nbsp;&nbsp;&nbsp;
+
+        <!-- PLAYER RANK-->
+        <h2 class="mat-h2">Player Rank</h2>
+        <mat-label>{{Player.player_rank}}</mat-label><br><br>
+        <mat-divider fxFlex="1 0"></mat-divider>&nbsp;&nbsp;&nbsp;
+
+        <!-- PLAYER SCORE -->
+        <h2 class="mat-h2">Player Score</h2>
+        <mat-label>{{Player.player_score}}</mat-label><br><br>
+        <mat-divider fxFlex="1 0"></mat-divider>&nbsp;&nbsp;&nbsp;
+
+    </mat-card>
+    <mat-card>
+        <!-- PLAYER TIME -->
+        <h2 class="mat-h2">Player Time</h2>
+        <mat-label>{{Player.player_time}}</mat-label><br><br>
+        <mat-divider fxFlex="1 0"></mat-divider>&nbsp;&nbsp;&nbsp;
+
+        <!-- PLAYER FAVOURITE GAME -->
+        <h2 class="mat-h2">Player Favourite Game</h2>
+        <mat-label>{{Player.player_favourite_game}}</mat-label><br><br>
+        <mat-divider fxFlex="1 0"></mat-divider>&nbsp;&nbsp;&nbsp;
+
+        <!-- GAMES LIST-->
+        <h2 class="mat-h2">Games List</h2>
+        <mat-form-field>
+            <mat-label *ngIf="isTrue==true; else elseBlock">Select a Game</mat-label>
+            <ng-template #elseBlock><mat-label style="color:red;">Select a Game</mat-label></ng-template>
+            <mat-select [(ngModel)]="selectedGame">
+                <mat-option *ngFor="let game of GamesList" [value]="game.game_title">
+                    {{game.game_title}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card>
+
+    <!-- Form -->
+    <div class="inner-wrapper">
+        <form (ngSubmit)="updatePlayerForm()" #resetPlayerForm="ngForm" novalidate>
+            <!-- Submit & Reset -->
+            <mat-card>
+                <div class="full-wrapper button-wrapper">
+                    <div class="button-wrapper">
+                        <button mat-flat-button color="accent">Join</button>
+                    </div>
+                </div>
+            </mat-card>
+        </form>
+    </div>
+</div>

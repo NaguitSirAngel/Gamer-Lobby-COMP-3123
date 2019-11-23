@@ -57,7 +57,7 @@
             <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef> Action </th>
               <td mat-cell *matCellDef="let element; let i = index;">
-                <button *ngIf="element.player_status == 'Available'" mat-raised-button color="accent">Join</button>
+                <button *ngIf="element.player_status == 'Available'" mat-raised-button color="accent" [routerLink]="['/join-game/', element._id]">Join</button>
               </td>
             </ng-container>
       
