@@ -1,40 +1,68 @@
 <!-- Title group  -->
 <div class="title-group">
     <h1 class="mat-h1">Players List</h1>
+    <button  mat-fab color="primary" routerLink="/add-player"  class="push-right">Add</button>
+    <button  mat-fab color="primary" routerLink="/games-list" class="push-right">Games</button>
+    <button  mat-fab color="accent" routerLink="/players-list" >Players</button>
+    <br>
+    <br>
+    <mat-form-field appearance = "outline"  class="push-right">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
-  
+
   <p *ngIf="PlayerData.length <= 0" class="no-data">There is no player added yet!</p>
   
   <div class="container" *ngIf="PlayerData.length > 0">
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="_id">
-          <th mat-header-cell *matHeaderCellDef> Player ID </th>
-          <td mat-cell *matCellDef="let element"> {{element._id}} </td>
-        </ng-container>
-  
+        <!-- PLAYER NAME -->
         <ng-container matColumnDef="player_name">
           <th mat-header-cell *matHeaderCellDef> Player Name </th>
           <td mat-cell *matCellDef="let element"> {{element.player_name}} </td>
         </ng-container>
   
-        <ng-container matColumnDef="player_email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let element"> {{element.player_email}} </td>
+        <!-- PLAYER RANK -->
+        <ng-container matColumnDef="player_rank">
+          <th mat-header-cell *matHeaderCellDef> Player Rank </th>
+          <td mat-cell *matCellDef="let element"> {{element.player_rank}} </td>
         </ng-container>
   
-        <ng-container matColumnDef="section">
-          <th mat-header-cell *matHeaderCellDef> Section </th>
-          <td mat-cell *matCellDef="let element"> {{element.section}} </td>
+        <!-- PLAYER SCORE -->
+        <ng-container matColumnDef="player_score">
+          <th mat-header-cell *matHeaderCellDef> Player Score </th>
+          <td mat-cell *matCellDef="let element"> {{element.player_score}} </td>
+        </ng-container>
+
+        <!-- PLAYER TIME -->
+        <ng-container matColumnDef="player_time">
+            <th mat-header-cell *matHeaderCellDef> Player Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.player_time}} </td>
+        </ng-container>
+
+        <!-- PLAYER GAMES PLAYED -->
+        <ng-container matColumnDef="player_games_played">
+            <th mat-header-cell *matHeaderCellDef> Games Played </th>
+            <td mat-cell *matCellDef="let element"> {{element.player_games_played}} </td>
+        </ng-container>
+
+        <!-- PLAYER STATUS -->
+        <ng-container matColumnDef="player_status">
+            <th mat-header-cell *matHeaderCellDef> Player Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.player_status}} </td>
         </ng-container>
   
+        <!-- ACTION -->
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Action </th>
           <td mat-cell *matCellDef="let element; let i = index;">
             <button mat-raised-button color="primary" class="push-right"
               [routerLink]="['/edit-player/', element._id]">Edit</button>
-            <button mat-raised-button color="accent" (click)="deletePlayer(i, element)">Delete</button>
+            <button mat-raised-button color="warn" (click)="deletePlayer(i, element)" class="push-right">Delete</button>
           </td>
         </ng-container>
   

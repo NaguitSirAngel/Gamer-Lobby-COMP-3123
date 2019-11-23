@@ -1,7 +1,12 @@
 <!-- Title group  -->
 <div class="title-group">
   <h1 class="mat-h1">Add Player</h1>
-  <mat-divider fxFlex="1 0"></mat-divider>
+  <button  mat-fab color="accent" routerLink="/add-player"  class="push-right">Add</button>
+    <button  mat-fab color="primary" routerLink="/games-list" class="push-right">Games</button>
+    <button  mat-fab color="primary" routerLink="/players-list" >Players</button>
+    <br>
+    <br>
+    <mat-divider fxFlex="1 0"></mat-divider>
 </div>
 
 <!-- Form -->
@@ -21,18 +26,18 @@
         <!-- Player Ranking-->
         <mat-form-field>
           <mat-label>Player Ranking</mat-label>
-          <mat-select [(value)]="selected" formControlName="player_ranking">
+          <mat-select [(value)]="rank_selected" formControlName="player_rank">
             <mat-option [value]="rankingArray" *ngFor="let rankingArray of RankingArray">{{rankingArray}}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="handleError('player_ranking', 'required')">
+          <mat-error *ngIf="handleError('player_rank', 'required')">
             Ranking is required
           </mat-error>
         </mat-form-field>
 
         <!-- Player Score -->
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Player Score" formControlName="player_score">
+          <input type="number" matInput placeholder="Player Score" formControlName="player_score">
           <mat-error *ngIf="handleError('player_score', 'required')">
             You must provide a <strong>player score</strong>
           </mat-error>
@@ -46,7 +51,7 @@
         <!-- Player Favourite Game-->
         <mat-form-field>
           <mat-label>Favourite Game</mat-label>
-          <mat-select [(value)]="selected" formControlName="player_favourite_game">
+          <mat-select [(value)]="game_selected" formControlName="player_favourite_game">
             <mat-option [value]="favouriteGameArray" *ngFor="let favouriteGameArray of FavouriteGameArray">{{favouriteGameArray}}
             </mat-option>
           </mat-select>
@@ -55,14 +60,12 @@
           </mat-error>
         </mat-form-field>        
 
-        <!-- Date of birth -->
-        <mat-form-field>
-          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="player_time"
-            (dateChange)="formatDate($event)">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+        <!-- Player Time -->
+        <mat-form-field class="example-full-width">
+          <input type="number" matInput placeholder="Player Time" formControlName="player_time">
+          <mat-hint>In hours</mat-hint>
           <mat-error *ngIf="handleError('player_time', 'required')">
-            Date of birth is required
+            You must provide a <strong>player time</strong>
           </mat-error>
         </mat-form-field>
 

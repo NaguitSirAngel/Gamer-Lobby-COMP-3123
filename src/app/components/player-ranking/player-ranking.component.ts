@@ -4,12 +4,12 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: 'app-players-list',
-  templateUrl: './players-list.component.html',
-  styleUrls: ['./players-list.component.css']
+  selector: 'app-player-ranking',
+  templateUrl: './player-ranking.component.html',
+  styleUrls: ['./player-ranking.component.css']
 })
+export class PlayerRankingComponent implements OnInit {
 
-export class PlayersListComponent implements OnInit {
   PlayerData: any = [];
   dataSource: MatTableDataSource<Player>;
   @ViewChild(MatPaginator , {static:false}) paginator: MatPaginator;

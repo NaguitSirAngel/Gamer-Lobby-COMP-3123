@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Player } from './player';
+import { Game } from './game';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -11,6 +12,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class ApiService {
 
   endpoint: string = 'http://localhost:4000/api';
+  gamesEndpoint: string = 'http://localhost:4000/gamesApi';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
@@ -22,6 +24,11 @@ export class ApiService {
       .pipe(
         catchError(this.errorMgmt)
       )
+  }
+
+  // Get all games
+  GetGames(){
+    return this.http.get(`${this.gamesEndpoint}`);
   }
 
   // Get all player
@@ -42,7 +49,7 @@ export class ApiService {
 
   // Update player
   UpdatePlayer(id, data: Player): Observable<any> {
-    let API_URL = `${this.endpoint}/update/${id}`;
+    let API_URL = `${this.endpoint}/update-player/${id}`;
     return this.http.put(API_URL, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )

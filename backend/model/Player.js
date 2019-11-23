@@ -13,7 +13,7 @@ let Player = new Schema({
     type: String
   },
   player_time: {
-    type: Date
+    type: String
   },
   player_favourite_game:{
     type: String

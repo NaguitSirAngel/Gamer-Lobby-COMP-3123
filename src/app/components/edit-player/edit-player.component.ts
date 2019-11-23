@@ -20,12 +20,14 @@ export class EditPlayerComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  @ViewChild('chipList' , {static:true}) chipList;
+  // @ViewChild('chipList' , {static:true}) chipList;
   @ViewChild('resetPlayerForm', {static:true}) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
-  subjectArray: Subject[] = [];
-  SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
+  selected1: null;
+  selected2: null;
+  RankingArray: any = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  FavouriteGameArray: any = ["Overwatch", "Battle Realms", "Command and Conquer", "World of Warcraft", "Dota 2"];
 
   ngOnInit() {
     this.updateBookForm();
@@ -41,14 +43,14 @@ export class EditPlayerComponent implements OnInit {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.playerApi.GetPlayer(id).subscribe(data => {
       console.log(data.subjects)
-      this.subjectArray = data.subjects;
+      // this.subjectArray = data.subjects;
       this.playerForm = this.fb.group({
         player_name: [data.player_name, [Validators.required]],
-        player_email: [data.player_email, [Validators.required]],
-        section: [data.section, [Validators.required]],
-        subjects: [data.subjects],
-        dob: [data.dob, [Validators.required]],
-        gender: [data.gender]
+        player_rank: [data.player_rank, [Validators.required]],
+        player_score: [data.player_score, [Validators.required]],
+        player_time:[data.player_time, [Validators.required]],
+        player_favourite_game:[data.player_favourite_game, [Validators.required]],
+        player_status:[data.player_status, [Validators.required]]
       })      
     })    
   }
@@ -57,43 +59,21 @@ export class EditPlayerComponent implements OnInit {
   updateBookForm() {
     this.playerForm = this.fb.group({
       player_name: ['', [Validators.required]],
-      player_email: ['', [Validators.required]],
-      section: ['', [Validators.required]],
-      subjects: [this.subjectArray],
-      dob: ['', [Validators.required]],
-      gender: ['Male']
+      player_score: ['', [Validators.required]],
+      player_time:['', [Validators.required]],
+      player_favourite_game:['',[Validators.required]],
+      player_rank: ['', [Validators.required]],
+      player_status: ['Available']
     })
   }
 
-  /* Add dynamic languages */
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    // Add language
-    if ((value || '').trim() && this.subjectArray.length < 5) {
-      this.subjectArray.push({ name: value.trim() })
-    }
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
-  }
-
-  /* Remove dynamic languages */
-  remove(subject: Subject): void {
-    const index = this.subjectArray.indexOf(subject);
-    if (index >= 0) {
-      this.subjectArray.splice(index, 1);
-    }
-  }
-
-  /* Date */
-  formatDate(e) {
-    var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.playerForm.get('dob').setValue(convertDate, {
-      onlyself: true
-    })
-  }
+  // /* Date */
+  // formatDate(e) {
+  //   var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
+  //   this.playerForm.get('player_time').setValue(convertDate, {
+  //     onlyself: true
+  //   })
+  // }
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {

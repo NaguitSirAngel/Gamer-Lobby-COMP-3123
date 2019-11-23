@@ -17,12 +17,12 @@ export class AddPlayerComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  @ViewChild('chipList', {static:true}) chipList;
   @ViewChild('resetPlayerForm', {static:true}) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   playerForm: FormGroup;
-
-  RankingArray: any = ["1", "2", "3", "4", "5"];
+  game_selected: null;
+  rank_selected: null;
+  RankingArray: any = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   FavouriteGameArray: any = ["Overwatch", "Battle Realms", "Command and Conquer", "World of Warcraft", "Dota 2"];
 
   ngOnInit() {
@@ -41,42 +41,20 @@ export class AddPlayerComponent implements OnInit {
     this.playerForm = this.fb.group({
       player_name: ['', [Validators.required]],
       player_score: ['', [Validators.required]],
-      player_ranking: ['', [Validators.required]],
       player_time: ['', [Validators.required]],
       player_favourite_game: ['', [Validators.required]],
+      player_rank: ['', [Validators.required]],
       player_status: ['Available']
     })
   }
 
-  /* Add dynamic languages */
-  // add(event: MatChipInputEvent): void {
-  //   const input = event.input;
-  //   const value = event.value;
-  //   // Add language
-  //   if ((value || '').trim() && this.gameArray.length < 5) {
-  //     this.gameArray.push({ name: value.trim() })
-  //   }
-  //   // Reset the input value
-  //   if (input) {
-  //     input.value = '';
-  //   }
-  // }
-
-  // /* Remove dynamic languages */
-  // remove(game: Game): void {
-  //   const index = this.gameArray.indexOf(game);
-  //   if (index >= 0) {
-  //     this.gameArray.splice(index, 1);
-  //   }
+  // /* Date */
+  // formatDate(e) {
+  //   var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
+  //   this.playerForm.get('player_time').setValue(convertDate, {
+  //     onlyself: true
+  //   })
   // }  
-
-  /* Date */
-  formatDate(e) {
-    var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.playerForm.get('dob').setValue(convertDate, {
-      onlyself: true
-    })
-  }  
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {
