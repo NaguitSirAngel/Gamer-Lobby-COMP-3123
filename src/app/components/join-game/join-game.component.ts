@@ -40,9 +40,9 @@ export class JoinGameComponent implements OnInit {
   }
   /* Update book */
   updatePlayerForm() {
-    this.Player.player_status = 'Unavailable';
     if (this.selectedGame != null) {
-      this.Player.player_games_played.push(this.selectedGame);
+      this.Player.player_status = 'Unavailable';
+      this.Player.player_games_played.push(" " + this.selectedGame);
       var id = this.actRoute.snapshot.paramMap.get('id');
       if (window.confirm('Are you sure you want to join?')) {
         this.playerApi.UpdatePlayer(id, this.Player).subscribe(res => {

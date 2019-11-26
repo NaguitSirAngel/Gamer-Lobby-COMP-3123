@@ -25,7 +25,7 @@
     <mat-card>
         <!-- PLAYER TIME -->
         <h2 class="mat-h2">Player Time</h2>
-        <mat-label>{{Player.player_time}}</mat-label><br><br>
+        <mat-label>{{Player.player_time}} hrs</mat-label><br><br>
         <mat-divider fxFlex="1 0"></mat-divider>&nbsp;&nbsp;&nbsp;
 
         <!-- PLAYER FAVOURITE GAME -->
@@ -37,7 +37,9 @@
         <h2 class="mat-h2">Games List</h2>
         <mat-form-field>
             <mat-label *ngIf="isTrue==true; else elseBlock">Select a Game</mat-label>
-            <ng-template #elseBlock><mat-label style="color:red;">Select a Game</mat-label></ng-template>
+            <ng-template #elseBlock>
+                <mat-label style="color:red;">Select a Game</mat-label>
+            </ng-template>
             <mat-select [(ngModel)]="selectedGame">
                 <mat-option *ngFor="let game of GamesList" [value]="game.game_title">
                     {{game.game_title}}
@@ -46,17 +48,20 @@
         </mat-form-field>
     </mat-card>
 
-    <!-- Form -->
     <div class="inner-wrapper">
-        <form (ngSubmit)="updatePlayerForm()" #resetPlayerForm="ngForm" novalidate>
-            <!-- Submit & Reset -->
-            <mat-card>
-                <div class="full-wrapper button-wrapper">
-                    <div class="button-wrapper">
-                        <button mat-flat-button color="accent">Join</button>
-                    </div>
+        <!-- Submit & Reset -->
+        <mat-card>
+            <div class="full-wrapper button-wrapper">
+                <div class="button-wrapper">
+                    <!-- Form -->
+                    <form (ngSubmit)="updatePlayerForm()" #resetPlayerForm="ngForm" novalidate>
+                        <button mat-flat-button color="accent" style="width: 75px;">Join</button>
+                    </form>
                 </div>
-            </mat-card>
-        </form>
+                <div class="button-wrapper">
+                    <button mat-flat-button color="warn" routerLink="/player-ranking">Cancel</button>
+                </div>
+            </div>
+        </mat-card>
     </div>
 </div>
