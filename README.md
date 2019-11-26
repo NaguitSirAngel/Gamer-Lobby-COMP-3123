@@ -11,6 +11,7 @@ https://gamer-lobby-angular.herokuapp.com/player-ranking
 
 # Convenience for the Professors
 Everything was done except for the following:
+- Vanilla Login Authentication (a tab for Admin was created instead)
 - Login Authorization with JWT Token
 - Image upload and display
 
