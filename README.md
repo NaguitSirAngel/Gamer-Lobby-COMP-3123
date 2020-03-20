@@ -5,6 +5,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Heroku Link
 https://gamer-lobby-angular.herokuapp.com/player-ranking
 
+# View
+![Alt text](/images/GamerLobby.PNG?raw=true)
+![Alt text](/images/GamerLobby1.PNG?raw=true)
+![Alt text](/images/GamerLobby2.PNG?raw=true)
+
 # Authors/Students
 - Aldrin Jacildo - 101112293
 - Sir Angel Naguit - 101152749
